@@ -17,45 +17,45 @@ public class TestStringCalculate {
 	}
 	
 	@Test
-	public void shouldReturnZeroOnEmptyString() throws Exception {
+	public void shouldReturnZeroOnEmptyString() {
 		assertEquals(0, stringCalculate.run(""));
 	}
 
 	@Test
-	public void shouldReturnOneNumber() throws Exception {
+	public void shouldReturnOneNumber() {
 		assertEquals(1, stringCalculate.run("1"));
 	}
 	
 	@Test
-	public void shouldReturnSumForTwoNubmers() throws Exception {
+	public void shouldReturnSumForTwoNubmers() {
 		assertEquals(3, stringCalculate.run("1,2"));
 	}
 	
 	@Test
-	public void shouldReturnSumForMultipleNumbers() throws Exception {
+	public void shouldReturnSumForMultipleNumbers() {
 		assertEquals(6, stringCalculate.run("1,2,3"));
 	}
 	
 	@Test
-	public void shouldHandleNewLine() throws Exception {
+	public void shouldHandleNewLine() {
 		assertEquals(6, stringCalculate.run("1\n2,3"));
 	}
 	
 	@Test
-	public void shouldSupportDifferentDelimiters() throws Exception {
+	public void shouldSupportDifferentDelimiters() {
 		assertEquals(5, stringCalculate.run("//;\n2;3"));
 	}
 	
 	@Rule public ExpectedException expectedEx = ExpectedException.none();
 	@Test
-	public void shouldThrowExceptionWhenNegatives() throws Exception {
+	public void shouldThrowExceptionWhenNegatives() {
 		expectedEx.expect(RuntimeException.class);
 		expectedEx.expectMessage("Negatives not allowed: -1 -2");
 		stringCalculate.run("-1,-2");
 	}
 	
 	@Test
-	public void shouldIgnoreNumbersBiggerThan1000() throws Exception {
+	public void shouldIgnoreNumbersBiggerThan1000() {
 		assertEquals(2, stringCalculate.run("1001,2"));
 	}
 }
